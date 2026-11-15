@@ -86,7 +86,7 @@ body.open #main{display:block}
 
 section{position:relative}
 .party{
-  padding:34px 16px 70px;overflow:hidden;
+  padding:104px 16px 70px;overflow:hidden;
   background:
     radial-gradient(circle at 0 0,#ffc6d3 0,transparent 40%),
     radial-gradient(circle at 100% 40%,#ffd9b8 0,transparent 40%),
@@ -158,6 +158,16 @@ button.btn:active{transform:translateY(4px);box-shadow:0 1px 0 #9c1f4d}
 .balloon{position:absolute;bottom:-60px;font-size:44px;cursor:pointer;animation:rise linear forwards;user-select:none}
 @keyframes rise{to{transform:translateY(-260px)}}
 
+.decor{position:absolute;pointer-events:none;z-index:2}
+.discowrap{top:0;left:5%;width:84px;transform-origin:50% 0;animation:swing 3s ease-in-out infinite alternate}
+.discowrap .str{width:2px;height:26px;margin:0 auto;background:#c9a6b3}
+.discowrap img{display:block;width:100%;height:auto}
+@keyframes swing{from{transform:rotate(-9deg)}to{transform:rotate(9deg)}}
+.starb{right:3%;top:30px;width:70px;height:auto;animation:bob 3.5s ease-in-out infinite}
+.bow{position:absolute;width:58px;height:auto;top:-24px;right:-8px;transform:rotate(12deg);z-index:3;pointer-events:none}
+.sticker.pic{padding-top:0;font-size:0}
+.sticker.pic::before{display:none}
+.sticker.pic img{display:block;width:min(150px,38vw);height:auto}
 .scroll-cue{text-align:center;margin-top:36px;font-weight:700;color:var(--cherry);animation:bob 1.6s infinite}
 .scroll-cue .arr{font-size:34px;display:block}
 
@@ -229,6 +239,8 @@ body.open #mute{display:block}
 <!-- ======== MAIN ======== -->
 <div id="main">
 <section class="party" id="top">
+  <div class="decor discowrap"><div class="str"></div><img src="img/disco-ball.png" alt=""></div>
+  <img class="decor starb" src="img/silver-star-balloon.png" alt="">
   <div class="sub-title">🎉 بالاخره رسید 🎉</div>
   <div class="ransom" id="ransom"></div>
   <span class="today">امروز تولده! نه فردا، نه امشب، همین الان ✨</span>
@@ -238,15 +250,17 @@ body.open #mute{display:block}
   <div class="stickers" id="stickers"></div>
 
   <div class="card tilt">
+    <img class="bow" src="img/red-bow.png" alt="">
     <h3>📋 پرونده رسمی مونا خانم</h3>
     <div class="stat"><div class="l"><span>غرغر کردن</span><span>۱۰۰٪</span></div><div class="bar"><i style="--w:100%"></i></div></div>
     <div class="stat"><div class="l"><span>کنترل همه‌چی</span><span>۱۰۰٪ (گواهینامه دارد)</span></div><div class="bar"><i style="--w:100%"></i></div></div>
-    <div class="stat"><div class="l"><span>صبوری با علیرضا</span><span>۹۰۰۰٪</span></div><div class="bar"><i class="over" style="--w:100%"></i></div></div>
+    <div class="stat"><div class="l"><span>صبوری با علیرضا</span><span>زیر خط فقر 📉</span></div><div class="bar"><i style="--w:6%"></i></div></div>
     <div class="stat"><div class="l"><span>ناز بودن</span><span>خارج از ظرفیت</span></div><div class="bar"><i class="over" style="--w:100%"></i></div></div>
     <div style="font-size:13px;opacity:.7;margin-top:8px">* همه‌ی آمار با عشق و کاملاً بی‌طرفانه ثبت شده</div>
   </div>
 
   <div class="card cake-wrap">
+    <img class="bow" src="img/red-bow.png" alt="" style="right:auto;left:-8px;transform:rotate(-12deg) scaleX(-1)">
     <h3>🎂 کیک تولد</h3>
     <div class="cake-pic">
       <img class="cake" src="cake.png" alt="کیک" onerror="this.style.display='none';this.parentNode.querySelector('.cake-fallback').style.display='block'">
@@ -307,13 +321,15 @@ body.open #mute{display:block}
 
     <p>آرزوم برای ۲۲ سالگیت: کیکت بزرگ باشه، دلت هیچ‌وقت نگیره، هرچی می‌خوای بشه، و غرغرات همیشه سر چیزای کوچیک باشه. و اینکه بدونی من اینجام، بلندبلند و همیشه، با کلی عشق.</p>
 
-    <p>تو رو بیشتر از دیروز دوست دارم، کمتر از فردا، و خیلی بیشتر از اون گربه‌ی کلاه‌به‌سر 🐱🎉</p>
+    <p>تو رو بیشتر از دیروز دوست دارم، کمتر از فردا، و خیلی بیشتر از اون چیزی که وانمود می‌کنم 🤍</p>
 
     <p style="text-align:center"><b>ایح ایح بهت دختر خوب 🥹💗</b></p>
 
     <div class="sign">همیشه مال تو،<br>علیرضا 💌</div>
 
     <p class="ps">پ.ن: دوستت دارم. پ.ن.ن: هنوزم دوستت دارم. پ.ن.ن.ن: لطفاً الان غر نزن که چرا نامه این‌قدر طولانیه. ♡</p>
+
+    <p class="ps">پاورقی: امیدوارم دوست داشته باشی ♡ همه‌ی زندگی من ♡ تمام توجه و فکر و ذکرم تویی</p>
   </div>
 
   <div class="final">
@@ -381,16 +397,27 @@ body.open #mute{display:block}
   }
 
   /* ---------- music unlock ---------- */
-  let unlocked = false, muted = false;
+  let unlocked = false, muted = false, wantMusic = false;
   function unlockAudio(){
     if(unlocked) return; unlocked = true;
-    music.volume = 0;
+    music.muted = true;
     const p = music.play();
-    if(p) p.then(() => { music.pause(); music.currentTime = 0; music.volume = 1; }).catch(() => { music.volume = 1; });
+    const done = () => { music.pause(); music.currentTime = 0; music.muted = muted; };
+    if(p && p.then) p.then(done).catch(() => { music.muted = muted; unlocked = false; }); else done();
   }
-  pin.addEventListener('pointerdown', unlockAudio);
-  pin.addEventListener('focus', unlockAudio);
-  muteBtn.addEventListener('click', () => {
+  ['pointerdown','touchstart','touchend','click','keydown'].forEach(ev =>
+    document.addEventListener(ev, unlockAudio, {passive:true}));
+  function tryPlay(){
+    wantMusic = true;
+    const p = music.play();
+    if(p && p.then) p.then(() => { muteBtn.textContent = muted ? '🔇' : '🔊'; })
+      .catch(() => { muteBtn.textContent = '🎵'; });
+  }
+  ['pointerdown','touchend','click'].forEach(ev =>
+    document.addEventListener(ev, () => { if(wantMusic && music.paused && !muted) tryPlay(); }, {passive:true}));
+  muteBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    if(music.paused){ muted = false; music.muted = false; tryPlay(); return; }
     muted = !muted; music.muted = muted; muteBtn.textContent = muted ? '🔇' : '🔊';
   });
 
@@ -411,8 +438,8 @@ body.open #mute{display:block}
   function openIt(){
     opened = true;
     pin.blur(); pin.disabled = true;
-    music.volume = 1; music.currentTime = 0;
-    music.play().catch(() => {});
+    music.muted = false; music.currentTime = 0;
+    tryPlay();
     env.classList.add('open');
     burst(innerWidth/2, innerHeight/2, 120);
     setTimeout(() => {
@@ -450,6 +477,14 @@ body.open #mute{display:block}
 
   // stickers
   const stk = [
+    ['cats-hugging.png','بغل می‌خوام. الان.',''],
+    ['ghosts-love.png','ایح ایح! روحمون یکیه 👻',''],
+    ['silly-cats.png','من و تو وقتی کیک می‌بینیم',''],
+    ['flower-head.png','رئیس شمایی خانومی 👑',''],
+    ['kiss.png','ماچ ماچ، تولدت مبارک 💋',''],
+    ['mygirl-love.png','همیشه دختر خوب من 🤍','']
+  ];
+  const stkOld = [
     ['🐱','ایح ایح! امروز تولد منه؟','#ff8fab'],
     ['🐵','غر نزن، کیک داریم','#4a90d9'],
     ['🐧','من پنگوئنم ولی تو رو دوست دارم','#f6b93b'],
@@ -460,7 +495,7 @@ body.open #mute{display:block}
   const wrap = $('#stickers');
   stk.forEach(([e,t,c], i) => {
     const d = document.createElement('div'); d.className = 'cell';
-    d.innerHTML = `<div class="sticker" style="--hat:${c};--r:${i%2?8:-8}deg">${e}</div><span class="bubble">${t}</span>`;
+    d.innerHTML = `<div class="sticker pic"><img src="img/${e}" alt=""></div><span class="bubble">${t}</span>`;
     const st = d.querySelector('.sticker');
     st.addEventListener('click', () => {
       st.classList.remove('wob'); void st.offsetWidth; st.classList.add('wob');
